@@ -1,0 +1,11 @@
+Package: LoopOrder
+Type: Package
+Title: Tests for Simple Loop Ordered Alternatives in One-Way ANOVA
+Version: 0.1.0
+Authors@R: person("Subha", "Halder", email = "sb.halder123456@gmail.com", role = c("aut", "cre"))
+Description: Implements a likelihood ratio test (LoopLRT) and two standardized mean-difference based tests (LoopMax and LoopMin) for testing equality of means against simple loop ordered alternatives in one-way ANOVA. The null hypothesis assumes all group means are equal, while the alternative imposes a loop order structure (H_1: μ_1 ≤ μ_i ≤ μ_k, i=2,3,...k-1) with atleast one strict inequality. Inputs include vectors of sample means, biased variances, and sample sizes along with a significance level; outputs include the test statistic, bootstrap critical value, p-value, and decision.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports: Iso
+RoxygenNote: 7.3.3
