@@ -360,7 +360,7 @@ LoopMin <- function(MUU, VAR, Sam_size, significance_level, n.boot = 100000, see
     for (j in 1:num_datasets) {
       bootstrap_samples[[j]] <- rnorm(n = n[j], mean = 0, sd = sqrt(vars[j]))
     }
-    D_star_min1 <- min(
+    D_star_min1 <- max(
       sapply(2:(num_datasets-1), function(i) {
         (mean(bootstrap_samples[[i]]) - mean(bootstrap_samples[[1]])) /
           sqrt(
@@ -369,7 +369,7 @@ LoopMin <- function(MUU, VAR, Sam_size, significance_level, n.boot = 100000, see
       }))
 
 
-    D_star_min2 <-min(
+    D_star_min2 <-max(
       sapply(2:(num_datasets-1), function(i) {
         (-mean(bootstrap_samples[[i]]) + mean(bootstrap_samples[[num_datasets]])) /
           sqrt(
@@ -380,12 +380,12 @@ LoopMin <- function(MUU, VAR, Sam_size, significance_level, n.boot = 100000, see
     T_min[u] <- min(D_star_min1,D_star_min2)
   }
 
-  Dm_values1 <- min(
+  Dm_values1 <- max(
     sapply(2:(num_datasets-1), function(i) {
       (MUU[i] - MUU[1]) / sqrt((vars[i] / n[i]) + (vars[1] / n[1]))
     }))
 
-  Dm_values2 <- min(sapply(2:(num_datasets-1), function(i) {
+  Dm_values2 <- max(sapply(2:(num_datasets-1), function(i) {
     (-MUU[i] + MUU[num_datasets]) / sqrt((vars[i] / n[i]) + (vars[num_datasets] / n[num_datasets]))
   }))
 
