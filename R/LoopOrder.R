@@ -200,7 +200,8 @@ LoopLRT <- function(MUU, VAR, Sam_size, significance_level, n.boot = 100000, see
 #' }
 #'
 #' The LoopMax statistic is constructed by comparing each interior group mean
-#' to the boundary groups, standardized by the pooled variance estimate. Then take maximum of the differences.
+#' to the boundary groups, standardized by their respective unpooled (Welch-type)
+#' standard errors. Then take maximum of the differences.
 #' A parametric bootstrap based on
 #' \eqn{N(0, \sigma_i^2)} is used to obtain critical values
 #' and p-values.
@@ -291,7 +292,7 @@ LoopMax <- function(MUU, VAR, Sam_size, significance_level, n.boot = 100000, see
 #' LoopMin (minimum of test statistic based) Test for Simple Loop Order Alternatives
 #'
 #' Performs the LoopMin test for assessing equality of means across multiple
-#' groups against the simple loop‐order alternative
+#' groups against the simple loop-order alternative
 #' \eqn{\mu_1 \le \mu_i \le \mu_k} for \eqn{i = 2, \ldots, k-1}.
 #' The test compares the null hypothesis of equal means with an ordered
 #' alternative in which the interior group means lie between the first and last
@@ -306,11 +307,9 @@ LoopMax <- function(MUU, VAR, Sam_size, significance_level, n.boot = 100000, see
 #' @param n.boot Number of bootstrap replications (default = \code{100000}).
 #' @param seed Optional random seed for reproducibility.
 #'
-#' @return A list containing:
-#'   \item{critical_value}{Bootstrap critical value at the specified level}
-#'   \item{max_statistic}{Observed LoopMin test statistic}
-#'   \item{p_value}{Bootstrap p-value}
-#'   \item{decision}{Test decision}
+#' @return A character string summarizing the test results, including the
+#'   bootstrap critical value, the observed LoopMin test statistic, the 
+#'   bootstrap p-value, and the test decision.
 #'
 #' @details
 #' The test evaluates:
@@ -321,7 +320,8 @@ LoopMax <- function(MUU, VAR, Sam_size, significance_level, n.boot = 100000, see
 #' }
 #'
 #' The LoopMin statistic is constructed by comparing each interior group mean
-#' to the boundary groups, standardized by the pooled variance estimate. Then take minimum of the differences.
+#' to the boundary groups, standardized by their respective unpooled (Welch-type)
+#' standard errors. Then take the minimum of these maximum standardized differences.
 #' A parametric bootstrap based on
 #' \eqn{N(0, \sigma_i^2)} is used to obtain critical values
 #' and p-values.
