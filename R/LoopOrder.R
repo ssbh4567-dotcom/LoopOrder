@@ -5,7 +5,7 @@
 #' \eqn{\mu_1 \le \mu_i \le \mu_k} for \eqn{i = 2, \ldots, k-1}.
 #' The test compares the null hypothesis of equal means across all groups
 #' with an ordered alternative where the middle groups lie between
-#' the first and the last group means.
+#' the first and the last (k-th) group means.
 #'
 #' @param MUU A numeric vector of sample means for the groups.
 #' @param VAR A numeric vector of biased sample variances (unrestricted MLE) for each group.
@@ -173,7 +173,7 @@ LoopLRT <- function(MUU, VAR, Sam_size, significance_level, n.boot = 100000, see
 #' groups against the simple loop‐order alternative
 #' \eqn{\mu_1 \le \mu_i \le \mu_k} for \eqn{i = 2, \ldots, k-1}.
 #' The test compares the null hypothesis of equal means with an ordered
-#' alternative in which the interior group means lie between the first and last
+#' alternative in which the interior group means lie between the first and last (k-th)
 #' group means.
 #'
 #' @param MUU A numeric vector of sample means for the groups.
@@ -295,7 +295,7 @@ LoopMax <- function(MUU, VAR, Sam_size, significance_level, n.boot = 100000, see
 #' groups against the simple loop-order alternative
 #' \eqn{\mu_1 \le \mu_i \le \mu_k} for \eqn{i = 2, \ldots, k-1}.
 #' The test compares the null hypothesis of equal means with an ordered
-#' alternative in which the interior group means lie between the first and last
+#' alternative in which the interior group means lie between the first and last (k-th)
 #' group means.
 #'
 #' @param MUU A numeric vector of sample means for the groups.
