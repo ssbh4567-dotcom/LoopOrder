@@ -2,7 +2,7 @@
 % Please edit documentation in R/LoopOrder.R
 \name{LoopMin}
 \alias{LoopMin}
-\title{LoopMin (minimum of test statistic based) Test for Simple Loop Order Alternatives}
+\title{LoopMin (Min-Max Test Statistics Based) Test for Simple Loop Order Alternatives}
 \usage{
 LoopMin(MUU, VAR, Sam_size, significance_level, n.boot = 1e+05, seed = NULL)
 }
@@ -45,7 +45,9 @@ The test evaluates:
 }
 
 The LoopMin statistic is constructed by comparing each interior group mean
-to the boundary groups, standardized by the pooled variance estimate. Then take minimum of the differences.
+to the boundary groups, standardized by their respective unpooled (Welch-type)
+standard errors. The maximum standardized difference is calculated for each boundary,
+and the minimum of these two maximums is taken as the final test statistic.
 A parametric bootstrap based on
 \eqn{N(0, \sigma_i^2)} is used to obtain critical values
 and p-values.
