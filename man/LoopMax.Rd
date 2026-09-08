@@ -43,9 +43,11 @@ The test evaluates:
   \qquad \text{vs.} \qquad
   H_1:\; \mu_1 \le \mu_i \le \mu_k,\; i = 2,\ldots,k-1.
 }
-
 The LoopMax statistic is constructed by comparing each interior group mean
-to the boundary groups, standardized by the pooled variance estimate. Then take maximum of the differences.
+to the boundary groups, standardized by their respective unpooled (Welch-type)
+standard errors. The maximum standardized difference is calculated for each boundary,
+and the maximum of these two maximums is taken as the final test statistic.
+
 A parametric bootstrap based on
 \eqn{N(0, \sigma_i^2)} is used to obtain critical values
 and p-values.
